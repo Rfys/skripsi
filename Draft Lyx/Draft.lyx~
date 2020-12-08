@@ -1,0 +1,523 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+% This preamble is designed to ensure that the User's Guide prints
+% out as advertised. If you mess with this preamble,
+% parts of the User's Guide may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+% for correct jump positions whe clicking on a link to a float
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% macro for italic page numbers in the index
+\newcommand{\IndexDef}[1]{\textit{#1}}
+
+% for customized page headers/footers
+% only needed because they are only used in one section of the document
+\usepackage{fancyhdr}
+% change header rule width
+\renewcommand{\headrulewidth}{2pt}
+
+% used to have extra space in table cells
+\@ifundefined{extrarowheight}
+ {\usepackage{array}}{}
+\setlength{\extrarowheight}{2pt}
+
+% workaround for a makeindex bug,
+% see sec. "Index Entry Order"
+% only uncomment this when you are using makindex
+%\let\OrgIndex\index 
+%\renewcommand*{\index}[1]{\OrgIndex{#1}}
+\end_preamble
+\options refpage,intoc,bibliography=totoc,index=totoc,BCOR7.5mm,captions=tableheading
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+customHeadersFooters
+enumitem
+logicalmkup
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "newtxmath" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command makeindex
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "The LyX User's Guide"
+\pdf_author "LyX Team"
+\pdf_subject "LyX"
+\pdf_keywords "LyX"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue, pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\notefontcolor #0000ff
+\branch Question
+\selected 1
+\filename_suffix 0
+\color #00ff00
+\end_branch
+\branch Answer
+\selected 0
+\filename_suffix 0
+\color #aa55ff
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict true
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Material Point Method
+\end_layout
+
+\begin_layout Subtitle
+Draft Skripsi
+\end_layout
+
+\begin_layout Author
+By: Arif Yunando S
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Pendahuluan
+\end_layout
+
+\begin_layout Section
+Latar Belakang
+\end_layout
+
+\begin_layout Section
+Identifikasi Masalah
+\end_layout
+
+\begin_layout Section
+Rumusah Masalah
+\end_layout
+
+\begin_layout Section
+Tujuan Penelitian
+\end_layout
+
+\begin_layout Chapter
+Dasar Teori
+\end_layout
+
+\begin_layout Section
+Material Point Method
+\end_layout
+
+\begin_layout Section
+CB-Geo - High Performance Material Point Method
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CB-Geo-1"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+About
+\end_layout
+
+\begin_layout Subsection
+MPM-Benchmarks
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+https://github.com/cb-geo/mpm-benchmarks.git
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MPM-Benchmarks adalah serangkat model uji untuk memeriksa konsistensi dari
+ mesin dalam mengkalkulasikan dinamika yang terjadi pada model.
+ Ada dua macam pengujian yang dapat yang dilakukan yaitu pengujian model
+ 2D dan pengujian model 3D.
+ Dalam repositori CB-Geo, terdapat 5 model uji 2D yaitu:
+\end_layout
+
+\begin_layout Itemize
+Uniaxial stress test
+\end_layout
+
+\begin_layout Itemize
+Hydrostatic column
+\end_layout
+
+\begin_layout Itemize
+Sliding block on inclined boundary
+\end_layout
+
+\begin_layout Itemize
+Uniaxial traction
+\end_layout
+
+\begin_layout Itemize
+Plate with hole (isoparametric)
+\end_layout
+
+\begin_layout Standard
+Sedangkan untuk pengujian 3D terdapat 4 model uji, yaitu:
+\end_layout
+
+\begin_layout Itemize
+Uniaxial stress test
+\end_layout
+
+\begin_layout Itemize
+Sliding block on inclined boundary
+\end_layout
+
+\begin_layout Itemize
+Hydrostatic column
+\end_layout
+
+\begin_layout Itemize
+Dam break
+\end_layout
+
+\begin_layout Standard
+Dalam pembahasan MPM Benchmark ini hanya dilakukan 4 buah simulasi uji coba
+ dengan 3 buah simulasi 2D dan 1 buah simulasi 3D.
+ Simulasi 2D yang diambil adalah sliding block inclined boundary, hydrostatic
+ column, dan plate with holes sedangkan untuk 3D simulasi yang dilakukan
+ adalah simulasi dam break.
+ Selanjutnya pada masing - masing simulasi akan dibuat beberapa buah kasus
+ untuk dapat mengenal karakteristik analisis yang disediakan oleh CB-Geo
+ secara lebih mendalam.
+\end_layout
+
+\begin_layout Subsubsection
+Sliding Block Inclined Boundary
+\end_layout
+
+\begin_layout Standard
+Dalam model uji ini, disimulasikan sebuah benda uji berbentuk persegi panjang
+ dengan permukaan panjangnya menempel pada suatu bidang miring yang ditentukan
+ oleh kondisi batas.
+ Gaya aktif yang berpengaruh pada benda ini hanyalah gravitasi.
+ Model kemudian disimulasikan bergerak sesuai dengan 
+\emph on
+initial force
+\emph default
+-nya dan dibiarkan jatuh mengikuti bidang.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Sliding Block Inclined Boundary.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sliding BLock Inclined Boundary - Freebody Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Untuk memverifikasi hasil analisis dari MPM, maka dilakukan suatu perhitungan
+ analitikal sebagai kontrol perhitungan.
+ Perhitungan ini didasarkan pada distribusi gaya yang bekerja pada massa
+ seperti yang ditunjukan pada Gambar 2.2.1.
+\begin_inset Formula 
+\begin{align*}
+N & =m\cdot g\cdot\cos A\\
+f & =N\times\mu\\
+F & =m\cdot g\cdot\sin A-f\\
+m.a & =m\cdot g\cdot\sin A-m\cdot g\cdot\cos A\times\mu\\
+a & =g\cdot(\sin A-\cos A\times\mu)\\
+V & =a\cdot t\\
+V & =g\cdot(\sin A-\cos A\times\mu)\times t\\
+V & =g\cdot(\tan A\cdot\cos A-\cos A\times\mu)\times t\\
+V & =g\cdot\cos A\cdot(\tan A-\mu)\times t
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bila diketahui kemiringan bidang boundary adalah 
+\begin_inset Formula $30\deg$
+\end_inset
+
+, percepatan gravitasi 
+\begin_inset Formula $9,81m/s^{2}$
+\end_inset
+
+, dan koefisien gesk maka, kita dapat memperoleh besar kecepatan pada setiap
+ perubahan waktu.
+ Untuk pengujian, dilakukan perhitungan untuk 3 buah kasus dengan nilai
+ koefisien gesek yang berbeda - beda.
+\end_layout
+
+\begin_layout Case
+Koefisien Gesek 0,1
+\end_layout
+
+\begin_layout Case
+Koefisien Gesek 0.3
+\end_layout
+
+\begin_layout Case
+Koefisien Gesek 0.6
+\end_layout
+
+\begin_layout Subsubsection
+Hydrostatic Column
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan suatu massa benda yang diletakan didalam suatu
+ wadah penahan secara lateral pada dua sisi dan secara vertikal pada sisi
+ bawah massa.
+ Lalu, masa diberikan gaya gravitasi agar mengalami tegangan hidrostatik.
+ Dalam benchmark yang disediakan CB-Geo, material benda yang digunakan adalah
+ Fluida Newtonian yang memiliki nilai Modulus Elastisitas 
+\begin_inset Formula $10^{6}\frac{N}{m^{2}}$
+\end_inset
+
+ dan Ratio Poisson 0.
+ Model ini digunakan sebagai kontrol terhadap beberapa uji yang kemudian
+ dilakukan pada material yang berbeda yaitu, tanah granular tipikal dan
+ tanah kohesif tipikal.
+ Terdapat dua macam mesh yang disediakan, segitiga dan segiempat.
+ Akan tetapi, dalam uji coba awal kali ini yang digunakan hanyalah mesh
+ segi empat.
+\end_layout
+
+\begin_layout Case
+Newtonian Fluids 
+\end_layout
+
+\begin_layout Case
+Linear Elastic (E = 1 MPa)
+\end_layout
+
+\begin_layout Case
+Linear Super-Elastic (E = 1 KPa)
+\end_layout
+
+\begin_layout Case
+Typical Granular Soils
+\end_layout
+
+\begin_layout Case
+Typical Cohesive Soils
+\end_layout
+
+\begin_layout Standard
+Hasil dari ketiga kasus tersebut menunjukan bahwa pada analisis yang dilakukan
+ oleh CB-Geo MPM untuk kasus kolom hidrostatik, terpadat efek osilasi yang
+ sangat kecil akibat perubahan dari 
+\emph on
+initial condition
+\emph default
+ menjadi 
+\emph on
+applied condition
+\emph default
+ yang terjadi pada step pertama.
+ Pada step ini, gaya gravitasi baru bekerja pada material dan membuat material
+ mengalami deformasi....
+\end_layout
+
+\begin_layout Subsubsection
+Plate With Holes
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan suatu pelat dengan lebar 5 meter dan panjang 8
+ meter yang memiliki lubang dengan diameter 0,5 meter yang mengalami gaya
+ tarik aksial tersebar merata searah sumbu x dengan besar 
+\begin_inset Formula $\sigma_{x}=100Pa$
+\end_inset
+
+.
+ Karena geometri benda yang simetris, maka model hanya menghitung seperempat
+ luasan dari bidang sesuai dengan potongan simetrinya.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Dam Break
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan sebuah kolom material fluida newtonian 3 dimensi
+ yang dibiarkan bebas hanya pada salah satu sisinya dan sisi atasnya.
+ Kemudian, kolom dibiarkan runtuh akibat gaya gravitasi sehingga pergerakannya
+ dapat visualisasikan.
+ 
+\end_layout
+
+\begin_layout Subsection
+Input Files
+\end_layout
+
+\begin_layout Chapter
+Metodologi Penelitian
+\end_layout
+
+\begin_layout Chapter
+Data dan Analisa
+\end_layout
+
+\begin_layout Chapter
+Kesimpulan
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CB-Geo-1"
+literal "false"
+
+\end_inset
+
+Kumar, K., Salmond, J., Kularathna, S., Wilkes, C., Tjung, E., Biscontin, G.,
+ & Soga, K.
+ (2019).
+ Scalable and modular material point method for large scale simulations.
+ 2nd International Conference on the Material Point Method.
+ Cambridge, UK.
+ https://arxiv.org/abs/1909.13380
+\end_layout
+
+\end_body
+\end_document
