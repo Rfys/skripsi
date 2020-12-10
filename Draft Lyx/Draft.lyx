@@ -4,7 +4,7 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass scrbook
+\textclass article
 \begin_preamble
 % DO NOT ALTER THIS PREAMBLE!!!
 %
@@ -58,18 +58,18 @@ enumitem
 logicalmkup
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language bahasa
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "lmodern" "default"
-\font_sans "lmss" "default"
-\font_typewriter "lmtt" "default"
+\font_roman "lmodern" "Times New Roman"
+\font_sans "lmss" "Times New Roman"
+\font_typewriter "lmtt" "Times New Roman"
 \font_math "newtxmath" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_osf true
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -79,13 +79,13 @@ logicalmkup
 \output_sync 0
 \bibtex_command bibtex
 \index_command makeindex
+\float_placement h
 \paperfontsize 12
 \spacing single
 \use_hyperref true
-\pdf_title "The LyX User's Guide"
-\pdf_author "LyX Team"
-\pdf_subject "LyX"
-\pdf_keywords "LyX"
+\pdf_title "Material Point Method"
+\pdf_author "Arif Yunando"
+\pdf_subject "Draft Skripsi"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen false
@@ -137,7 +137,7 @@ logicalmkup
 \topmargin 3cm
 \rightmargin 3cm
 \bottommargin 3cm
-\secnumdepth 2
+\secnumdepth 3
 \tocdepth 2
 \paragraph_separation skip
 \defskip medskip
@@ -159,9 +159,9 @@ logicalmkup
 
 \begin_layout Title
 Material Point Method
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Subtitle
 Draft Skripsi
 \end_layout
 
@@ -169,44 +169,35 @@ Draft Skripsi
 By: Arif Yunando S
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
+\begin_layout Section
 Pendahuluan
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Latar Belakang
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Identifikasi Masalah
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Rumusah Masalah
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Tujuan Penelitian
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 Dasar Teori
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Material Point Method
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 CB-Geo - High Performance Material Point Method
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -218,11 +209,11 @@ literal "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 About
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 MPM-Benchmarks
 \begin_inset Foot
 status collapsed
@@ -295,7 +286,7 @@ Dalam pembahasan MPM Benchmark ini hanya dilakukan 4 buah simulasi uji coba
  secara lebih mendalam.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Sliding Block Inclined Boundary
 \end_layout
 
@@ -332,15 +323,17 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sliding-BLock-Inclined"
+
+\end_inset
+
 Sliding BLock Inclined Boundary - Freebody Diagram
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -351,21 +344,55 @@ Sliding BLock Inclined Boundary - Freebody Diagram
 
 \begin_layout Standard
 Untuk memverifikasi hasil analisis dari MPM, maka dilakukan suatu perhitungan
- analitikal sebagai kontrol perhitungan.
+ analitikal sebagai kontrol.
  Perhitungan ini didasarkan pada distribusi gaya yang bekerja pada massa
- seperti yang ditunjukan pada Gambar 2.2.1.
+ seperti yang ditunjukan pada Gambar
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sliding-BLock-Inclined"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \begin_inset Formula 
-\begin{align*}
-N & =m\cdot g\cdot\cos A\\
-f & =N\times\mu\\
-F & =m\cdot g\cdot\sin A-f\\
-m.a & =m\cdot g\cdot\sin A-m\cdot g\cdot\cos A\times\mu\\
-a & =g\cdot(\sin A-\cos A\times\mu)\\
-V & =a\cdot t\\
-V & =g\cdot(\sin A-\cos A\times\mu)\times t\\
-V & =g\cdot(\tan A\cdot\cos A-\cos A\times\mu)\times t\\
+\begin{align}
+N & =m\cdot g\cdot\cos A\nonumber \\
+f & =N\times\mu\nonumber \\
+F & =m\cdot g\cdot\sin A-f\nonumber \\
+m\cdot a & =m\cdot g\cdot\sin A-m\cdot g\cdot\cos A\times\mu\nonumber \\
+a & =g\cdot(\sin A-\cos A\times\mu)\label{eq:sliding_block_acceleration}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mensubstitusikan persamaan 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sliding_block_acceleration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ kedalam persamaan kecepatan maka akan didapatkan persamaan sebagai berikut:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+V & =a\cdot t\nonumber \\
+V & =g\cdot(\sin A-\cos A\times\mu)\times t\nonumber \\
+V & =g\cdot(\tan A\cdot\cos A-\cos A\times\mu)\times t\nonumber \\
 V & =g\cdot\cos A\cdot(\tan A-\mu)\times t
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -377,8 +404,8 @@ Bila diketahui kemiringan bidang boundary adalah
 \begin_inset Formula $30\deg$
 \end_inset
 
-, percepatan gravitasi 
-\begin_inset Formula $9,81m/s^{2}$
+, percepatan gravitasi 9,8 
+\begin_inset Formula $m/s^{2}$
 \end_inset
 
 , dan koefisien gesk maka, kita dapat memperoleh besar kecepatan pada setiap
@@ -387,19 +414,298 @@ Bila diketahui kemiringan bidang boundary adalah
  koefisien gesek yang berbeda - beda.
 \end_layout
 
-\begin_layout Case
-Koefisien Gesek 0,1
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
 \end_layout
 
-\begin_layout Case
-Koefisien Gesek 0.3
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time
 \end_layout
 
-\begin_layout Case
-Koefisien Gesek 0.6
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.1$
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsubsection
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MPM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,2 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,4 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analitikal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,2 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,4 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Perbandingan Hasil Perhitungan MPM dan Analitikal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dari hasil perhitungan tersebut, dapat dilihat bahwa pada perhitungan kecepatan
+ menggunakan metode material point, hasilnya sangat konsisten.
+ 
+\end_layout
+
+\begin_layout Paragraph
 Hydrostatic Column
 \end_layout
 
@@ -454,11 +760,21 @@ initial condition
 applied condition
 \emph default
  yang terjadi pada step pertama.
- Pada step ini, gaya gravitasi baru bekerja pada material dan membuat material
- mengalami deformasi....
+ Fenomena ini bisa terjadi karena adanya efek peredaman dan elastisitas
+ yang dibahas di 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Efek-Peredaman"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Plate With Holes
 \end_layout
 
@@ -475,7 +791,7 @@ Model ini mensimulasikan suatu pelat dengan lebar 5 meter dan panjang 8
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Dam Break
 \end_layout
 
@@ -487,19 +803,30 @@ Model ini mensimulasikan sebuah kolom material fluida newtonian 3 dimensi
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Input Files
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Subsection
+Efek Peredaman dan Elastisitas pada Material
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efek-Peredaman"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Metodologi Penelitian
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 Data dan Analisa
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 Kesimpulan
 \end_layout
 
