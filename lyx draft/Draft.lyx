@@ -1,0 +1,1164 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+% This preamble is designed to ensure that the User's Guide prints
+% out as advertised. If you mess with this preamble,
+% parts of the User's Guide may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+% for correct jump positions whe clicking on a link to a float
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% macro for italic page numbers in the index
+\newcommand{\IndexDef}[1]{\textit{#1}}
+
+% for customized page headers/footers
+% only needed because they are only used in one section of the document
+\usepackage{fancyhdr}
+% change header rule width
+\renewcommand{\headrulewidth}{2pt}
+
+% used to have extra space in table cells
+\@ifundefined{extrarowheight}
+ {\usepackage{array}}{}
+\setlength{\extrarowheight}{2pt}
+
+% workaround for a makeindex bug,
+% see sec. "Index Entry Order"
+% only uncomment this when you are using makindex
+%\let\OrgIndex\index 
+%\renewcommand*{\index}[1]{\OrgIndex{#1}}
+\end_preamble
+\options refpage,intoc,bibliography=totoc,index=totoc,BCOR7.5mm,captions=tableheading
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+customHeadersFooters
+enumitem
+logicalmkup
+\end_modules
+\maintain_unincluded_children false
+\language bahasa
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "Times New Roman"
+\font_sans "lmss" "Times New Roman"
+\font_typewriter "lmtt" "Times New Roman"
+\font_math "newtxmath" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command makeindex
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Material Point Method"
+\pdf_author "Arif Yunando"
+\pdf_subject "Draft Skripsi"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue, pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\notefontcolor #0000ff
+\branch Question
+\selected 1
+\filename_suffix 0
+\color #00ff00
+\end_branch
+\branch Answer
+\selected 0
+\filename_suffix 0
+\color #aa55ff
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict true
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+Material Point Method
+\begin_inset Newline newline
+\end_inset
+
+Draft Skripsi
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Arif
+\series default
+ 
+\series bold
+Yunando
+\series default
+ S
+\end_layout
+
+\begin_layout Quote
+\noindent
+\align center
+(2017410211)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/0.0 Logo Unpar Color.png
+	lyxscale 20
+	width 4cm
+	height 4cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\align center
+
+\series bold
+Universitas Katolik Parahyangan
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Fakultas Teknik Jurusan Teknik Sipil
+\begin_inset Newline newline
+\end_inset
+
+2021
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pendahuluan
+\end_layout
+
+\begin_layout Subsection
+Latar Belakang
+\end_layout
+
+\begin_layout Subsection
+Identifikasi Masalah
+\end_layout
+
+\begin_layout Subsection
+Rumusah Masalah
+\end_layout
+
+\begin_layout Subsection
+Tujuan Penelitian
+\end_layout
+
+\begin_layout Section
+Dasar Teori
+\end_layout
+
+\begin_layout Subsection
+Analisis Numerik
+\end_layout
+
+\begin_layout Subsection
+Metode Komputasi
+\end_layout
+
+\begin_layout Subsubsection
+Mesh-based Approaches
+\end_layout
+
+\begin_layout Subsubsection
+Mesh-free Approaches
+\end_layout
+
+\begin_layout Subsection
+Limit Equilibrium Method (
+\emph on
+Empirical Method
+\emph default
+)
+\end_layout
+
+\begin_layout Subsection
+Finite Element Method
+\end_layout
+
+\begin_layout Subsection
+Material Point Method
+\end_layout
+
+\begin_layout Subsection
+CB-Geo - High Performance Material Point Method
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CB-Geo-1"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+About
+\end_layout
+
+\begin_layout Subsubsection
+MPM-Benchmarks
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+https://github.com/cb-geo/mpm-benchmarks.git
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MPM-Benchmarks adalah serangkat model uji untuk memeriksa konsistensi dari
+ mesin dalam mengkalkulasikan dinamika yang terjadi pada model.
+ Ada dua macam pengujian yang dapat yang dilakukan yaitu pengujian model
+ 2D dan pengujian model 3D.
+ Dalam repositori CB-Geo, terdapat 5 model uji 2D yaitu:
+\end_layout
+
+\begin_layout Itemize
+Uniaxial stress test
+\end_layout
+
+\begin_layout Itemize
+Hydrostatic column
+\end_layout
+
+\begin_layout Itemize
+Sliding block on inclined boundary
+\end_layout
+
+\begin_layout Itemize
+Uniaxial traction
+\end_layout
+
+\begin_layout Itemize
+Plate with hole (isoparametric)
+\end_layout
+
+\begin_layout Standard
+Sedangkan untuk pengujian 3D terdapat 4 model uji, yaitu:
+\end_layout
+
+\begin_layout Itemize
+Uniaxial stress test
+\end_layout
+
+\begin_layout Itemize
+Sliding block on inclined boundary
+\end_layout
+
+\begin_layout Itemize
+Hydrostatic column
+\end_layout
+
+\begin_layout Itemize
+Dam break
+\end_layout
+
+\begin_layout Standard
+Dalam pembahasan MPM Benchmark ini hanya dilakukan 4 buah simulasi uji coba
+ dengan 3 buah simulasi 2D dan 1 buah simulasi 3D.
+ Simulasi 2D yang diambil adalah sliding block inclined boundary, hydrostatic
+ column, dan plate with holes sedangkan untuk 3D simulasi yang dilakukan
+ adalah simulasi dam break.
+ Selanjutnya pada masing - masing simulasi akan dibuat beberapa buah kasus
+ untuk dapat mengenal karakteristik analisis yang disediakan oleh CB-Geo
+ secara lebih mendalam.
+\end_layout
+
+\begin_layout Paragraph
+Sliding Block Inclined Boundary
+\end_layout
+
+\begin_layout Standard
+Dalam model uji ini, disimulasikan sebuah benda uji berbentuk persegi panjang
+ dengan permukaan panjangnya menempel pada suatu bidang miring yang ditentukan
+ oleh kondisi batas.
+ Gaya aktif yang berpengaruh pada benda ini hanyalah gravitasi.
+ Model kemudian disimulasikan bergerak sesuai dengan 
+\emph on
+initial force
+\emph default
+-nya dan dibiarkan jatuh mengikuti bidang.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Sliding Block Inclined Boundary.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sliding-BLock-Inclined"
+
+\end_inset
+
+Sliding BLock Inclined Boundary - Freebody Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Untuk memverifikasi hasil analisis dari MPM, maka dilakukan suatu perhitungan
+ analitikal sebagai kontrol.
+ Perhitungan ini didasarkan pada distribusi gaya yang bekerja pada massa
+ seperti yang ditunjukan pada Gambar
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sliding-BLock-Inclined"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align}
+N & =m\cdot g\cdot\cos A\nonumber \\
+f & =N\times\mu\nonumber \\
+F & =m\cdot g\cdot\sin A-f\nonumber \\
+m\cdot a & =m\cdot g\cdot\sin A-m\cdot g\cdot\cos A\times\mu\nonumber \\
+a & =g\cdot(\sin A-\cos A\times\mu)\label{eq:sliding_block_acceleration}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mensubstitusikan persamaan 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sliding_block_acceleration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ kedalam persamaan kecepatan maka akan didapatkan persamaan sebagai berikut:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+V & =a\cdot t\nonumber \\
+V & =g\cdot(\sin A-\cos A\times\mu)\times t\nonumber \\
+V & =g\cdot(\tan A\cdot\cos A-\cos A\times\mu)\times t\nonumber \\
+V & =g\cdot\cos A\cdot(\tan A-\mu)\times t
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bila diketahui kemiringan bidang boundary adalah 
+\begin_inset Formula $30\deg$
+\end_inset
+
+, percepatan gravitasi 9,8 
+\begin_inset Formula $m/s^{2}$
+\end_inset
+
+, dan koefisien gesk maka, kita dapat memperoleh besar kecepatan pada setiap
+ perubahan waktu.
+ Untuk pengujian, dilakukan perhitungan untuk 3 buah kasus dengan nilai
+ koefisien gesek yang berbeda - beda.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu=0.6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MPM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,2 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,4 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analitikal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,2 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,4 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Perbandingan Hasil Perhitungan MPM dan Analitikal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dari hasil perhitungan tersebut, dapat dilihat bahwa pada perhitungan kecepatan
+ menggunakan metode material point, hasilnya sangat konsisten.
+ Selain menghasilkan perhitungan kepecepatam, MPM juga menghitung tegangan
+ dan regangan yang terjadi pada setiap titik partikel material.
+ Berikut beberapa gambar grafik dan data yang dikeluarkan oleh MPM dan telah
+ diolah dalam program Paraview 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+paraview.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Hydrostatic Column
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Hydrostatic-Column"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan suatu massa benda yang diletakan didalam suatu
+ wadah penahan secara lateral pada dua sisi dan secara vertikal pada sisi
+ bawah massa.
+ Lalu, masa diberikan gaya gravitasi agar mengalami tegangan hidrostatik.
+ Dalam benchmark yang disediakan CB-Geo, material benda yang digunakan adalah
+ Fluida Newtonian yang memiliki nilai Modulus Elastisitas 
+\begin_inset Formula $10^{6}\frac{N}{m^{2}}$
+\end_inset
+
+ dan Ratio Poisson 0.
+ Model ini digunakan sebagai kontrol terhadap beberapa uji yang kemudian
+ dilakukan pada material yang berbeda yaitu, tanah granular tipikal dan
+ tanah kohesif tipikal.
+ Terdapat dua macam mesh yang disediakan, segitiga dan segiempat.
+ Akan tetapi, dalam uji coba awal kali ini yang digunakan hanyalah mesh
+ segi empat.
+\end_layout
+
+\begin_layout Case
+Newtonian Fluids 
+\end_layout
+
+\begin_layout Case
+Linear Elastic (E = 1 MPa)
+\end_layout
+
+\begin_layout Case
+Linear Super-Elastic (E = 1 KPa)
+\end_layout
+
+\begin_layout Case
+Typical Granular Soils
+\end_layout
+
+\begin_layout Case
+Typical Cohesive Soils
+\end_layout
+
+\begin_layout Standard
+Hasil dari ketiga kasus tersebut menunjukan bahwa pada analisis yang dilakukan
+ oleh CB-Geo MPM untuk kasus kolom hidrostatik, terpadat efek osilasi yang
+ sangat kecil akibat perubahan dari 
+\emph on
+initial condition
+\emph default
+ menjadi 
+\emph on
+applied condition
+\emph default
+ yang terjadi pada step pertama.
+ Fenomena ini bisa terjadi karena adanya efek peredaman dan elastisitas
+ yang dibahas di subbab 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Efek-Peredaman"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Plate With Holes
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan suatu pelat dengan lebar 5 meter dan panjang 8
+ meter yang memiliki lubang dengan diameter 0,5 meter yang mengalami gaya
+ tarik aksial tersebar merata searah sumbu x dengan besar 
+\begin_inset Formula $\sigma_{x}=100Pa$
+\end_inset
+
+.
+ Karena geometri benda yang simetris, maka model hanya menghitung seperempat
+ luasan dari bidang sesuai dengan potongan simetrinya.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Dam Break
+\end_layout
+
+\begin_layout Standard
+Model ini mensimulasikan sebuah kolom material fluida newtonian 3 dimensi
+ yang dibiarkan bebas hanya pada salah satu sisinya dan sisi atasnya.
+ Kemudian, kolom dibiarkan runtuh akibat gaya gravitasi sehingga pergerakannya
+ dapat visualisasikan.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Praprocessing
+\end_layout
+
+\begin_layout Paragraph
+Mesh and Particle Generation
+\end_layout
+
+\begin_layout Paragraph
+Boundary Condition and 
+\end_layout
+
+\begin_layout Subsubsection
+Postprocessing
+\end_layout
+
+\begin_layout Paragraph
+VTK 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The Vizualization Tookit (vtk.org)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+HDF5 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Hierarchical Data Format 5th version (https://portal.hdfgroup.org/display/HDF5/HDF
+5)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model Konstitutif Material
+\end_layout
+
+\begin_layout Subsection
+Efek Peredaman dan Elastisitas pada Material
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efek-Peredaman"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pada simulasi Hydrostatic Column (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Hydrostatic-Column"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), ditemukan bahwa perhitungan menggunakan metode analisis material point
+ mengintroduksikan suatu osilasi tepat setelah simulasi dimulai.
+ Fenomena ini muncul akibat perubahan kondisi material dari tidak terbeban
+ menjadi terbeban.
+ Karena pada dasarnya seluruh material memiliki suatu nilai elastisitas
+ tertentu maka fenomena ini dapat kita illustrasikan sebagai sistem pegas
+ vertikal dengan peredam seperti yang ditunjukan pada gambar 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sistem-pegas-vertikal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Sistem Pegas dengan Regangan Vertikal.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sistem-pegas-vertikal"
+
+\end_inset
+
+Sistem pegas vertikal dengan regangan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bedasarkan Hukum Hooke maka persamaan untuk gaya pegas adalah koefisien
+ pegas dikali dengan perubahan panjang pegas.
+ 
+\begin_inset Formula 
+\begin{equation}
+F_{pegas}=k\cdot x
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jika kemudian diimplementasikan Hukum Newton kedalam sistem maka dapat dibuat
+ persamaan aksi reaksi dengan besar gaya pegas sama dengan beban benda.
+\begin_inset Formula 
+\begin{align}
+F_{pegas} & =F_{beban}\\
+k\cdot x & =F_{beban}\nonumber \\
+k & =\frac{F_{beban}}{x}\nonumber \\
+\frac{k}{A} & =\frac{\frac{F_{beban}}{A}}{x}\\
+\frac{k}{A} & =\frac{\sigma_{beban}}{\epsilon}\nonumber \\
+\frac{k}{A} & =E\label{eq:k=E}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dengan menurunkan persamaan aksi reaksi dan membagi kedua ruas dengan luas
+ maka dapat dilihat bahwa sebenarnya koefisien pegas hanyalah Modulus Elastisita
+s (Modulus Young) dari material benda.
+ Maka, jika demikian seluruh perhitungan gerak harmonik sederhana kita dapat
+ implementasikan ke dalam sistem dan menghitung berbagai macam properti
+ lainnya seperti 
+\emph on
+natural frequency 
+\emph default
+dan amplitudo dari sistem.
+ Menariknya, pada metode material point kaidah yang digunakan adalah hukum
+ konservasi masa, dengan demikian kehilangan energi sebenarnya dapat diliat
+ dan digunakan untuk menghitung properti lainnya seperti besar rasio peredaman
+ akibat gravitasi, kehilangan energi, dan imperfeksi perhitungan.
+\end_layout
+
+\begin_layout Subsubsection
+Frekuensi Natural dan Amplitudo
+\end_layout
+
+\begin_layout Subsubsection
+Koefisien Peredaman dan Ratio Peredaman
+\end_layout
+
+\begin_layout Section
+Metodologi Penelitian
+\end_layout
+
+\begin_layout Section
+Data dan Analisa
+\end_layout
+
+\begin_layout Section
+Kesimpulan
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "CB-Geo-1"
+literal "false"
+
+\end_inset
+
+Kumar, K., Salmond, J., Kularathna, S., Wilkes, C., Tjung, E., Biscontin, G.,
+ & Soga, K.
+ (2019).
+ Scalable and modular material point method for large scale simulations.
+ 2nd International Conference on the Material Point Method.
+ Cambridge, UK.
+ https://arxiv.org/abs/1909.13380
+\end_layout
+
+\end_body
+\end_document
