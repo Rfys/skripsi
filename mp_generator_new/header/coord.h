@@ -28,6 +28,17 @@ struct coordinates
         return add(other);
     }
 
+    bool is_equal(const coordinates& other) const
+    {
+        if (x == other.x && y == other.y && z == other.z) return true;
+        else return false;    
+    }
+
+    bool operator==(const coordinates& other) const
+    {
+        return is_equal(other);
+    }
+
     coordinates rotate(double& angle)
     {
         double cosine,  sine;

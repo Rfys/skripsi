@@ -82,38 +82,29 @@ std::vector<coordinates> discretize_line_segment(coordinates& first, coordinates
 /*Collecting all boundary Into 1 arraylist*/
 std::vector<coordinates> shape_input(std::vector<coordinates>& input_pt, double& dl)
 {
+    input_pt.push_back(input_pt[0]);
     std::vector<coordinates> pt_sets;
     for (int i = 0; i < input_pt.size() - 1; i++)
     {
+        std::vector<coordinates> a;
         if (input_pt[i].z != 0)
         {
-            auto a = discretize_circle_segment(input_pt[i], input_pt[i+1], dl);
-            for (int j = 0; j < a.size(); j++)
-            {
-                pt_sets.push_back(a[j]);
-            }
+            a = discretize_circle_segment(input_pt[i], input_pt[i+1], dl);
         } else  
         {
-            auto a = discretize_line_segment(input_pt[i], input_pt[i+1], dl);
-            for (int j = 0; j < a.size(); j++)
-            {
-                pt_sets.push_back(a[j]);
-            }
+            a = discretize_line_segment(input_pt[i], input_pt[i+1], dl);
         } 
-    }
-    if (input_pt[input_pt.size()-1].z != 0)
-    {
-        auto a = discretize_circle_segment(input_pt[input_pt.size()- 1], input_pt[0], dl);
-        for (int j = 0; j < a.size(); j++)
+        for (int i = 0; i < a.size(); i++)
         {
-            pt_sets.push_back(a[j]);
-        }
-    } else
-    {
-        auto a = discretize_line_segment(input_pt[input_pt.size()- 1], input_pt[0], dl);
-        for (int j = 0; j < a.size(); j++)
-        {
-            pt_sets.push_back(a[j]);
+            bool cek = true;
+            for (int j = 0; j < pt_sets.size(); j++)
+            {
+                if (pt_sets[j] == a[i])
+                {
+                    cek = false;
+                }
+            }
+            if (cek) pt_sets.push_back(a[i]);
         }
     }
     return pt_sets;
@@ -121,10 +112,10 @@ std::vector<coordinates> shape_input(std::vector<coordinates>& input_pt, double&
 
 double get_max_y(std::vector<coordinates>& input_pt)
 {
-    double x;
+    double x = 0;
     for (int i = 0; i < input_pt.size(); i++)
     {
-        if (x<input_pt[i].y)
+        if (x < input_pt[i].y)
         {
             x = input_pt[i].y;
         }
@@ -134,10 +125,10 @@ double get_max_y(std::vector<coordinates>& input_pt)
 
 double get_max_x(std::vector<coordinates>& input_pt)
 {
-    double x;
+    double x = 0;
     for (int i = 0; i < input_pt.size(); i++)
     {
-        if (x<input_pt[i].x)
+        if (x < input_pt[i].x)
         {
             x = input_pt[i].x;
         }
@@ -148,10 +139,10 @@ double get_max_x(std::vector<coordinates>& input_pt)
 std::vector<std::vector<double>> transform_boundary(std::vector<coordinates>& input_pt, double& interval, double& limit)
 {
     std::vector<std::vector<double>> index_and_boundary;
-    for (int i = 0; i <= limit; i+= interval)
+    for (double i = 0; i <= limit; i+= interval)
     {
         std::vector<double> tmp;
-        tmp.push_back(i);
+        tmp.push_back(0);
         for (int j = 0; j < input_pt.size(); j++)
         {
             if (i == input_pt[j].y)
@@ -159,39 +150,35 @@ std::vector<std::vector<double>> transform_boundary(std::vector<coordinates>& in
                 tmp.push_back(input_pt[j].x);
             }     
         }
+        std::sort(tmp.begin(),tmp.end());
+        tmp[0]=i;
         index_and_boundary.push_back(tmp);
     }
     return index_and_boundary;
 }
 
-std::vector<coordinates>* generate_coordinate(std::vector<std::vector<double>>& index_and_boundary, double& z, double& dl, double& limit, int& nx, int& ny, int& nz)
+std::vector<coordinates>* generate_coordinate(std::vector<std::vector<double>>& index_and_boundary, double& z, double& dl, double& limit)
 {
     std::vector<coordinates>* data_set = new std::vector<coordinates>;
-    for (int k = 0; k <= z; k+= dl)
+    for (double k = 0; k <= z; k+= dl)
     {
         for (int j = 0; j < index_and_boundary.size(); j++)
         {
-            for (int i = 0; i <= limit; i+=dl)
+            for (double i = 0; i <= limit; i+=dl)
             {
-                if (index_and_boundary[i].size()%2 == 1)
+                if (index_and_boundary[j].size()%2 == 1)
                 {
                 for (int n = 1; n < index_and_boundary[i].size(); n+=2)
                     {
-                        if (i >= index_and_boundary[i][k] && i <= index_and_boundary[i][k+1])
+                        if (i >= index_and_boundary[i][n] && i <= index_and_boundary[i][n+1])
                         {
-                            (*data_set).push_back(coordinates(i, j, k));
+                            (*data_set).push_back(coordinates(i, index_and_boundary[j][0], k));
                         }
                     }
                 }
-                nx++;
             }
-            ny++;
         }
-        nz++;
     }
-    nx--;
-    ny--;
-    nz--;
     return data_set;
 }
 

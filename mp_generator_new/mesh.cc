@@ -6,7 +6,7 @@
 void mpm_mesh_main()
 {
     double x, y, z, dx;
-    int n_cell_x = 0, n_cell_y = 0, n_cell_z = 0;
+    
     std::vector<coordinates> coordinate;
     std::vector<std::vector<int>> indices;
     std::cout<< "                         ____________________                        " << std::endl;
@@ -29,13 +29,19 @@ void mpm_mesh_main()
     {
         std::cout << input[i] << std::endl;
     }
+
+    std::cout << std::endl;
     auto shape = shape_input(input, dx);
     for (int i = 0; i < shape.size(); i++)
     {
         std::cout << shape[i] << std::endl;
     }
+
+    std::cout << std::endl;
     double max_y = get_max_y(input);
     double max_x = get_max_x(input);
+    std::cout << max_y << " " << max_x << std::endl << "here\n\n";
+
     auto transformed = transform_boundary(shape, dx, max_y);
     for (int i = 0; i < transformed.size(); i++)
     {
@@ -45,34 +51,49 @@ void mpm_mesh_main()
         }
         std::cout<<"\n";
     }
-    auto data_set = generate_coordinate(transformed, z, dx, max_x, n_cell_x, n_cell_y, n_cell_z); //ini pointer
-    //auto node_set = generate_indices(n_cell_x, n_cell_y, n_cell_z);
+
+    std::cout << std::endl;
+    std::cout <<"here\n";
+    auto data_set = generate_coordinate(transformed, z, dx, max_x); //ini pointer
 
     int nnodes, ncells;
-    nnodes = (n_cell_x+1)*(n_cell_y+1)*(n_cell_z+1);
+    int n_cell_x = 0, n_cell_y = 0, n_cell_z = 0;
+    int n_node_x = 0, n_node_y = 0, n_node_z = 0;
+    n_cell_x = int(floor(x/dx));
+    n_cell_y = int(floor(y/dx));
+    n_cell_z = int(floor(z/dx));
+    auto node_set = generate_indices(n_cell_x, n_cell_y, n_cell_z);
+    if (n_cell_x == 0) n_cell_x = 1;
+    if (n_cell_y == 0) n_cell_y = 1;
+    if (n_cell_z == 0) n_cell_z = 1;
+    n_node_x = int(floor(x/dx)) + 1;
+    n_node_y = int(floor(y/dx)) + 1;
+    n_node_z = int(floor(z/dx)) + 1;
     ncells = (n_cell_x)*(n_cell_y)*(n_cell_z);
-        
+    nnodes = (n_node_x)*(n_node_y)*(n_node_z);
+    
     //std::string filename;
     //std::cout<< "Insert File Name (eg. mesh.txt): "; std::cin >> filename; std::cout<< std::endl;
-    
-    //std::fstream mesh ("mesh.txt");
+    std::ofstream mesh ("mesh.txt");
 
     //printout declaration
-    std::cout << nnodes << " " << ncells << std::endl;
+    mesh << nnodes << " " << ncells << std::endl;
     //printout coordinates
     for (int i = 0; i < (*data_set).size(); i++)
     {
-        std::cout << (*data_set)[i] << std::endl;
+        mesh << (*data_set)[i] << std::endl;
     }
-    //printout indices
-    //for (int i = 0; i < node_set.size(); i++)
-    //{
-    //    for (int j = 0; j < node_set[i].size() - 1; j++)
-    //    {
-    //        std::cout << node_set[i][j] << " ";
-    //    }
-    //    std::cout << node_set[i][node_set[i].size()-1] << std::endl;
-    //}
-    // std::cout.close();
+
+    // printout indices
+    for (int i = 0; i < node_set.size(); i++)
+    {
+        for (int j = 0; j < node_set[i].size() - 1; j++)
+        {
+            mesh << node_set[i][j] << " ";
+        }
+        mesh << node_set[i][node_set[i].size()-1] << std::endl;
+    }
+    mesh.close();
+    
     delete(data_set);
 }
