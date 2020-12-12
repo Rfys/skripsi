@@ -76,6 +76,8 @@ if (n_cell_z == 0)
     dy   = 1;
 }
 
+std::cout << dx << " " << dy << " " << dz << " " << n_cell_x << " " << n_cell_y << " " << n_cell_z << std::endl; 
+std::cout << x << " " << y << " " << z << std::endl;
 
 //calculate specs
 if (n_cell_z == 0)
@@ -97,11 +99,11 @@ if (n_cell_z == 0)
 std::vector<coordinates> data_set;
 data_set.reserve(nnodes);
 
-for (double i = 0; i <= z; i += dz)
+for (double i = 0; i < z + (0.01*dz); i += dz)
 {
-    for (double j = 0; j <= y; j += dy)
+    for (double j = 0; j < y + (0.01*dy); j += dy)
     {
-        for (double k = 0; k <= x; k += dx)
+        for (double k = 0; k < x + (0.01*dx); k += dx)
         {
             data_set.emplace_back(coordinates(k,j,i));
         }
