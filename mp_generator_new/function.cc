@@ -6,7 +6,7 @@
 #include "header/coord.h"
 #include "header/functions.h"
 
-std::vector<coordinates> transform_to_point(double& x, double& y, double& dl)
+std::vector<coordinates> transform_to_point(double& x, double& y)
 {
     std::vector<coordinates> point_list;
     point_list.reserve(4);

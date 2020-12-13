@@ -84,7 +84,7 @@ void mpm_mesh_main()
 
     //std::string filename;
     //std::cout<< "Insert File Name (eg. mesh.txt): "; std::cin >> filename; std::cout<< std::endl;
-    std::ofstream mesh ("mesh.txt");
+    std::ofstream mesh ("generated/mesh.txt");
 
     //printout declaration
     mesh << nnodes << " " << ncells << std::endl;

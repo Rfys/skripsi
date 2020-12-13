@@ -1,6 +1,7 @@
-#include <iostream>
 #include "header/coord.h"
 #include "header/functions.h"
+#include <string>
+#include <fstream>
 
 //double x,y,z;
 //int n_cell_x, n_cell_y, n_cell_z;
@@ -35,11 +36,80 @@
 
 void mpm_particle_main()
 {
-    double x, y, z, angle;
-    std::cout << "Insert Coordinate"; std::cin >> x >> y >> z; std::cout<< std::endl;
-    std::cout << "Insert Angle"; std::cin >> angle; std::cout<< std::endl;
-    coordinates test = coordinates(x, y, z);
-    test = test.translate(angle, angle, angle);
-    std::cout << test << std::endl;
-    std::cin.get();
+    double x, y, z, dx;
+    int counter;
+    std::vector<coordinates> input;
+
+    std::cout<< "Insert Total Shape Points: "; std::cin >> counter; std::cout << std::endl;
+    input.reserve(counter);
+    for (int i = 0; i < counter; i++)
+    {
+        double m, n, o;
+        std::cout << "Insert point " << i << "[x y z]: "; std::cin >> m >> n >> o; std::cout << std::endl;
+        input.emplace_back(coordinates(m, n, o));
+    }
+
+    std::cout<< "Insert Particle spacing: "; std::cin >> dx; std::cout << std::endl;
+
+    auto shape = shape_input(input, dx);
+
+    for (int i = 0; i < shape.size(); i++)
+    {
+        std::cout << shape[i] << std::endl;
+    }
+    std::cout << std::endl;
+    
+    double max_y = get_max_y(input);
+    double max_x = get_max_x(input);
+    
+    std::cout << max_y << " " << max_x << std::endl << "here\n\n";
+
+    auto transformed = transform_boundary(shape, dx, max_y);
+    for (int i = 0; i < transformed.size(); i++)
+    {
+        for (int j = 0; j < transformed[i].size(); j++)
+        {
+            std::cout << transformed[i][j] << " ";
+        }
+        std::cout<<"\n";
+    }
+
+    std::cout << std::endl;
+    std::cout <<"here\n";
+    auto data_set = generate_coordinate(transformed, z, dx, max_x); //ini pointer
+
+    //introduce Rotation
+    {
+        double angle_deg;
+        std::cout<< "Insert Rotation Angle (degree) [90 ~ -90]: "; std::cin>> angle_deg; std::cout << std::endl;
+        for (int i = 0; i < (*data_set).size(); i++)
+        {
+            (*data_set)[i] = (*data_set)[i].rotate(angle_deg);
+        }
+    }
+
+    //introduce Translation
+    {
+        double u, v, w;
+        std::cout<< "Insert Translation Matrix [x <space> y <space> z] {0 0 0 for no-translation}: "; std::cin>> u >> v >> w; std::cout << std::endl;
+        for (int i = 0; i < (*data_set).size(); i++)
+        {
+            (*data_set)[i] = (*data_set)[i].translate(u, v, w);
+        }
+    }
+
+    //std::string filename;
+    //std::cout<< "Insert File Name (eg. mesh.txt): "; std::cin >> filename; std::cout<< std::endl;
+    std::ofstream particles ("generated/particles.txt");
+
+    //printout declaration
+    particles << (*data_set).size() << std::endl;
+    //printout coordinates
+    for (int i = 0; i < (*data_set).size(); i++)
+    {
+        particles << (*data_set)[i] << std::endl;
+    }
+
+    particles.close();
+    delete(data_set);
 }
