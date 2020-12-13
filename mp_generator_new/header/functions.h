@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<coordinates> transform_to_point(double& x, double& y, double& dl);
+std::vector<coordinates> transform_to_point(double& x, double& y);
 
 std::ostream& operator<<(std::ostream& print, const coordinates& coordinates);
 

@@ -29,7 +29,7 @@ std::vector<coordinates> discretize_circle_segment(coordinates& first, coordinat
     double R2 = (dx2 + dy2)/(2*(1-cos(angle_rad)));
     double maks  = std::max(first.y, second.y);
     double minim = std::min(first.y, second.y);
-    for (double i = 0; i <= maks; i+=dl)
+    for (double i = 0; i < maks + (0.01*dl); i+=dl)
     {
         if (i >= minim)
         {
@@ -56,7 +56,7 @@ std::vector<coordinates> discretize_line_segment(coordinates& first, coordinates
         result.emplace_back(second);
     } else if (dx == 0)
     {
-        for (double i = 0; i <= maks; i+=dl)
+        for (double i = 0; i < maks + (0.01*dl); i+=dl)
         {
             if (i>=minim)
             {
@@ -67,7 +67,7 @@ std::vector<coordinates> discretize_line_segment(coordinates& first, coordinates
     {
         double a = dy/dx;
         double b = first.y - (a*first.x);
-        for (double i = 0; i <= maks; i+=dl)
+        for (double i = 0; i < maks + (0.01*dl); i+=dl)
         {
             if (i >= minim)
             {
@@ -139,7 +139,7 @@ double get_max_x(std::vector<coordinates>& input_pt)
 std::vector<std::vector<double>> transform_boundary(std::vector<coordinates>& input_pt, double& interval, double& limit)
 {
     std::vector<std::vector<double>> index_and_boundary;
-    for (double i = 0; i <= limit; i+= interval)
+    for (double i = 0; i < limit + + (0.01*interval); i+= interval)
     {
         std::vector<double> tmp;
         tmp.push_back(0);
@@ -160,11 +160,11 @@ std::vector<std::vector<double>> transform_boundary(std::vector<coordinates>& in
 std::vector<coordinates>* generate_coordinate(std::vector<std::vector<double>>& index_and_boundary, double& z, double& dl, double& limit)
 {
     std::vector<coordinates>* data_set = new std::vector<coordinates>;
-    for (double k = 0; k <= z; k+= dl)
+    for (double k = 0; k < z + (0.01*dl); k+= dl)
     {
         for (int j = 0; j < index_and_boundary.size(); j++)
         {
-            for (double i = 0; i <= limit; i+=dl)
+            for (double i = 0; i < limit + (0.01*dl); i+=dl)
             {
                 if (index_and_boundary[j].size()%2 == 1)
                 {

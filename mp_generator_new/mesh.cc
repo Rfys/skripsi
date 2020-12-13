@@ -24,7 +24,7 @@ void mpm_mesh_main()
     std::cout<< "Insert Z: "; std::cin>> z; std::cout<< std::endl;
     std::cout<< "Insert Cell Length: "; std::cin>> dx; std::cout<< std::endl;
 
-    auto input = transform_to_point(x, y, dx);
+    auto input = transform_to_point(x, y);
     for (int i = 0; i < input.size(); i++)
     {
         std::cout << input[i] << std::endl;
@@ -56,6 +56,16 @@ void mpm_mesh_main()
     std::cout <<"here\n";
     auto data_set = generate_coordinate(transformed, z, dx, max_x); //ini pointer
 
+    //introduce Rotation
+    {
+        double angle_deg;
+        std::cout<< "Insert Rotation Angle (degree) [90 ~ -90]: "; std::cin>> angle_deg; std::cout << std::endl;
+        for (int i = 0; i < (*data_set).size(); i++)
+        {
+            (*data_set)[i] = (*data_set)[i].rotate(angle_deg);
+        }
+    }
+
     int nnodes, ncells;
     int n_cell_x = 0, n_cell_y = 0, n_cell_z = 0;
     int n_node_x = 0, n_node_y = 0, n_node_z = 0;
@@ -71,7 +81,7 @@ void mpm_mesh_main()
     n_node_z = int(floor(z/dx)) + 1;
     ncells = (n_cell_x)*(n_cell_y)*(n_cell_z);
     nnodes = (n_node_x)*(n_node_y)*(n_node_z);
-    
+
     //std::string filename;
     //std::cout<< "Insert File Name (eg. mesh.txt): "; std::cin >> filename; std::cout<< std::endl;
     std::ofstream mesh ("mesh.txt");
