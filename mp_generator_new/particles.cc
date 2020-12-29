@@ -78,6 +78,16 @@ void mpm_particle_main()
     std::cout <<"here\n";
     auto data_set = generate_coordinate(transformed, z, dx, max_x); //ini pointer
 
+    //introduce Translation
+    {
+        double u, v, w;
+        std::cout<< "Insert Translation Matrix [x <space> y <space> z] {0 0 0 for no-translation}: "; std::cin>> u >> v >> w; std::cout << std::endl;
+        for (int i = 0; i < (*data_set).size(); i++)
+        {
+            (*data_set)[i] = (*data_set)[i].translate(u, v, w);
+        }
+    }
+    
     //introduce Rotation
     {
         double angle_deg;
@@ -88,15 +98,6 @@ void mpm_particle_main()
         }
     }
 
-    //introduce Translation
-    {
-        double u, v, w;
-        std::cout<< "Insert Translation Matrix [x <space> y <space> z] {0 0 0 for no-translation}: "; std::cin>> u >> v >> w; std::cout << std::endl;
-        for (int i = 0; i < (*data_set).size(); i++)
-        {
-            (*data_set)[i] = (*data_set)[i].translate(u, v, w);
-        }
-    }
 
     //std::string filename;
     //std::cout<< "Insert File Name (eg. mesh.txt): "; std::cin >> filename; std::cout<< std::endl;

@@ -4,7 +4,7 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
+\textclass scrreprt
 \begin_preamble
 % DO NOT ALTER THIS PREAMBLE!!!
 %
@@ -46,6 +46,9 @@
 % only uncomment this when you are using makindex
 %\let\OrgIndex\index 
 %\renewcommand*{\index}[1]{\OrgIndex{#1}}
+
+\date{}
+\let\endtitlepage\relax
 \end_preamble
 \options refpage,intoc,bibliography=totoc,index=totoc,BCOR7.5mm,captions=tableheading
 \use_default_options true
@@ -137,7 +140,7 @@ logicalmkup
 \topmargin 3cm
 \rightmargin 3cm
 \bottommargin 3cm
-\secnumdepth 3
+\secnumdepth 2
 \tocdepth 2
 \paragraph_separation skip
 \defskip medskip
@@ -157,32 +160,76 @@ logicalmkup
 
 \begin_body
 
-\begin_layout Title
-
-\series bold
-Material Point Method
-\begin_inset Newline newline
-\end_inset
-
-Draft Skripsi
-\end_layout
-
-\begin_layout Author
-
-\series bold
-Arif
-\series default
- 
-\series bold
-Yunando
-\series default
- S
-\end_layout
-
-\begin_layout Quote
+\begin_layout Standard
 \noindent
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+LARGE
+\backslash
+textbf{Material Point Method
+\backslash
+
+\backslash
+Draft Skripsi}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.5cm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Arif Yunando S}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
 (2017410211)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3cm}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -191,9 +238,24 @@ Yunando
 \begin_inset Graphics
 	filename Images/0.0 Logo Unpar Color.png
 	lyxscale 20
-	width 4cm
-	height 4cm
-	keepAspectRatio
+	width 5cm
+	height 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3cm}
+\end_layout
 
 \end_inset
 
@@ -261,39 +323,309 @@ newpage
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Pendahuluan
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Latar Belakang
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Identifikasi Masalah
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Rumusah Masalah
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Tujuan Penelitian
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Dasar Teori
 \end_layout
 
-\begin_layout Subsection
-Material Point Method
+\begin_layout Section
+Analisis Numerik
+\end_layout
+
+\begin_layout Section
+Model Konstitutif
+\end_layout
+
+\begin_layout Standard
+Tanah adalah material yang sangat kompleks.
+ Sifatnya tidak linear dan sering kali memiliki properti fisik yang berbeda
+ pada setiap aksisnya.
+ Mulai dari wujudnya yang terdiri dari 3 fasa yang berbeda: butir tanah,
+ air, dan udara.
+ Lalu, bentuknya yang tidak homogen dan berbeda - beda pada setiap lokasi.
+ Brinkgreve (2005) membagi aspek - aspek perilaku tanah aktual ini menjadi
+ 6 yaitu: dipengaruhi air, memiliki kekakuan yang tidak konstan, deformasinya
+ plastis, kekuatannya berasal dari kuat geser, dipengaruhi oleh waktu, dan
+ memiliki masalah dengan kekompakan dan tekanan prakonsolidasi.
+ 
+\end_layout
+
+\begin_layout Standard
+Mengatasi permasalahan - permasalahan tersebut, para ahli geoteknik dan
+ matematikawan telah merumuskan banyak sekali model matematis.
+ Tujuannya adalah dapat mensederhanakan perilaku kompleks tanah menjadi
+ suatu material yang dapat diprediksi.
+ Dalam merumuskan model matematis, ditentukan berbagai macam parameter yang
+ memiliki makna secara riil dan dapat diukur.
+ Dasar dari penentuan parameter model antara lain:
+\end_layout
+
+\begin_layout Itemize
+hasil uji laboratorium (uji odometer, uji CRS, uji tri-axial, uji geser
+ langsung),
+\end_layout
+
+\begin_layout Itemize
+hasil uji in-situ (standard penetration test (SPT), cone penetration test
+ (CPT), uji dilatometer, dan uji pressuremeter),
+\end_layout
+
+\begin_layout Itemize
+tabel korelasi properti tanah, 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+rule of thumb, 
+\emph default
+dan pengalaman
+\end_layout
+
+\begin_layout Standard
+Penelitian dan pengembangan model matematis ini kemudian menghasilkan beberapa
+ model yang paling umum digunakan dalam praktik geoteknik.
+ Ti (2018) merangkum model - model ini dan hasilnya disajikan pada tabel.
+\end_layout
+
+\begin_layout Standard
+...TABEL KOMPARASI...
 \end_layout
 
 \begin_layout Subsection
+Elastik Linear (Hukum Hooke)
+\end_layout
+
+\begin_layout Subsection
+Newtonian
+\end_layout
+
+\begin_layout Subsection
+Mohr Coulomb
+\end_layout
+
+\begin_layout Standard
+Model Mohr Coulomb adalah salah satu model yang paling tua dalam dunia geoteknik.
+ Model ini adalah model empiris yang dikembangkan oleh Charles-Augistin
+ de Coulomb pada tahun 1773 dan dilanjutkan oleh Christian Otto Mohr di
+ abad ke-19.
+ Model Moh-Coulomb adalah suatu model elastik untuk material yang plastis
+ sempurna (Brinkgreve, 2005).
+ Model ini merupakan kombinasi dari Hukum Hooke dan kriteria kegagalan Coulomb
+ yang digeneralisasi.
+ Model ini sudah digunakan dari zaman Karl von Terzaghi, bapak ilmu mekanika
+ tanah dan rekayasa geoteknik.
+ Terzaghi (1943) menyebut persamaan ini sebagai 
+\emph on
+Coulomb's equation
+\emph default
+ yang didefinisikan sebagai
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s=c+\sigma\cdot\tan\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dimana:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2cm">
+<column alignment="left" valignment="top" width="4cm">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= kuat geser
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= kohesi
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\backslash
+sigma
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= kuat tekan
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\backslash
+phi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= sudut geser
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seperti yang dijelaskan sebelumnya, perilaku tanah sangat dipengaruhi oleh
+ fasa air dan udara.
+ Maka, banyak dari parameter dalam model Mohr Coulomb dipengaruhi langsung
+ oleh keberadaan air.
+ Hingga saat ini, umumnya dalam praktik geoteknik, tanah selalu diasumsikan
+ jenuh air atau hampir jenuh air.
+ Hal ini tentu saja merupakan idealisasi yang sangat konservatif mengingat
+ tanah di dunia nyata umumnya tidak jenuh air.
+ Akan tetapi, pendekatan ini memberikan suatu hasil yang lebih praktikal
+ ketimbang perhitungan dengan kondisi tidak jenuh air.
+ Dari model Mohr Coulomb, kuat geser tanah dapat dibagi menjadi dua bagian
+ utama yaitu kohesi dan sudut geser tanah.
+ Model ini juga memberikan 
+\end_layout
+
+\begin_layout Standard
+Akan tetapi, dengan menggunakan asumsi ini, variabel udara dapat dihilangkan.
+ Hasilnya, setiap parameter yang terukur merupakan hasil fungsi dari tanah
+ dan air.
+ Kuat tanah inilah yang kemudian dinamakan oleh Terzaghi sebagai 
+\emph on
+Total Stress.
+
+\emph default
+ Apabila kemudian tekanan hidrostatik air dianggap linear sepanjang kedalaman
+ tanah, maka dapat diperoleh kekuatan tanah efektif.
+ 
+\end_layout
+
+\begin_layout Subsection
+Bingham
+\end_layout
+
+\begin_layout Subsection
+NorSand
+\end_layout
+
+\begin_layout Section
+Metode Komputasi
+\end_layout
+
+\begin_layout Subsection
+Mesh-based Approaches
+\end_layout
+
+\begin_layout Subsection
+Mesh-free Approaches
+\end_layout
+
+\begin_layout Section
+Limit Equilibrium Method (
+\emph on
+Empirical Method
+\emph default
+)
+\end_layout
+
+\begin_layout Section
+Finite Element Method
+\end_layout
+
+\begin_layout Section
+Material Point Method
+\end_layout
+
+\begin_layout Section
 CB-Geo - High Performance Material Point Method
 \begin_inset CommandInset citation
 LatexCommand cite
-key "CB-Geo-1"
+key "kumar_scalable_2019"
 literal "false"
 
 \end_inset
@@ -301,11 +633,11 @@ literal "false"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 About
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 MPM-Benchmarks
 \begin_inset Foot
 status collapsed
@@ -378,7 +710,7 @@ Dalam pembahasan MPM Benchmark ini hanya dilakukan 4 buah simulasi uji coba
  secara lebih mendalam.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Sliding Block Inclined Boundary
 \end_layout
 
@@ -794,10 +1126,23 @@ Perbandingan Hasil Perhitungan MPM dan Analitikal
 \begin_layout Standard
 Dari hasil perhitungan tersebut, dapat dilihat bahwa pada perhitungan kecepatan
  menggunakan metode material point, hasilnya sangat konsisten.
- 
+ Selain menghasilkan perhitungan kepecepatam, MPM juga menghitung tegangan
+ dan regangan yang terjadi pada setiap titik partikel material.
+ Berikut beberapa gambar grafik dan data yang dikeluarkan oleh MPM dan telah
+ diolah dalam program Paraview 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+paraview.org
 \end_layout
 
-\begin_layout Paragraph
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
 Hydrostatic Column
 \begin_inset CommandInset label
 LatexCommand label
@@ -873,7 +1218,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Plate With Holes
 \end_layout
 
@@ -890,7 +1235,7 @@ Model ini mensimulasikan suatu pelat dengan lebar 5 meter dan panjang 8
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Dam Break
 \end_layout
 
@@ -902,19 +1247,52 @@ Model ini mensimulasikan sebuah kolom material fluida newtonian 3 dimensi
  
 \end_layout
 
-\begin_layout Subsubsection
-Input JSON File
+\begin_layout Subsection
+Pre-processing
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 Mesh and Particle Generation
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 Boundary Condition and 
 \end_layout
 
 \begin_layout Subsection
+Postprocessing
+\end_layout
+
+\begin_layout Subsubsection
+VTK 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The Vizualization Tookit (vtk.org)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+HDF5 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Hierarchical Data Format 5th version (https://portal.hdfgroup.org/display/HDF5/HDF
+5)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Efek Peredaman dan Elastisitas pada Material
 \begin_inset CommandInset label
 LatexCommand label
@@ -1045,41 +1423,36 @@ dan amplitudo dari sistem.
  akibat gravitasi, kehilangan energi, dan imperfeksi perhitungan.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Frekuensi Natural dan Amplitudo
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Koefisien Peredaman dan Ratio Peredaman
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Metodologi Penelitian
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Data dan Analisa
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Kesimpulan
 \end_layout
 
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "CB-Geo-1"
-literal "false"
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "dafpus"
+options "plain"
 
 \end_inset
 
-Kumar, K., Salmond, J., Kularathna, S., Wilkes, C., Tjung, E., Biscontin, G.,
- & Soga, K.
- (2019).
- Scalable and modular material point method for large scale simulations.
- 2nd International Conference on the Material Point Method.
- Cambridge, UK.
- https://arxiv.org/abs/1909.13380
+
 \end_layout
 
 \end_body
